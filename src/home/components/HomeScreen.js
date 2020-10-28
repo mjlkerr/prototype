@@ -1,12 +1,13 @@
 import React, {Component} from 'react';
 import {connect} from 'react-redux';
-
 import {View, Text, Button} from 'react-native';
 import {getTestAction} from '../actions';
+import ConsumerComponent from './ConsumerComponent';
 
 const HomeScreen = (props) => {
   return (
     <View style={{flex: 1, alignItems: 'center', justifyContent: 'center'}}>
+      <ConsumerComponent />
       <Text>Home Screen</Text>
       <Text>{props.testText}</Text>
       <Button onPress={props.getTestAction} title="Press Me!" color="#841584" />

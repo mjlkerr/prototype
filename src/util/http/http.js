@@ -5,6 +5,10 @@ const url = 'http://sub1.bfs-dev.com:3001/';
 const test = 'http://localhost:3000/setup/plan_types';
 const test1 = 'http://localhost:3000/api/v1/insights/insights_settings';
 
+const page = 'http://sub1.bfs-dev.com:3001/admin/insights';
+
+const cable = 'ws://sub1.bfs-dev.com:3000/cable';
+
 export const get = () => {
   //TODO
 };
