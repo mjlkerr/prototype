@@ -17,14 +17,16 @@ const cable = 'ws://sub1.bfs-dev.com:3000/cable';
 const consumer = createConsumer(cable);
 
 const ConsumerComponent = () => {
+  console.log('consumer');
+  console.log(consumer);
   const [value, setValue] = useState('');
   const [messages, setMessages] = useState([]);
   const insightsData = useMemo(() => {
     return consumer.subscriptions.create(
       {
         channel: 'SocketToMeChannel',
-        route: 'insights#export_metric_details',
-        microsite_id: 19,
+        route: 'insights#compare_insights_books_read',
+        microsite_id: 1,
       },
       {
         received(data) {
