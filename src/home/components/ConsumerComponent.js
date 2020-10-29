@@ -12,7 +12,8 @@ import {createConsumer} from '@rails/actioncable';
 global.addEventListener = () => {};
 global.removeEventListener = () => {};
 
-const cable = 'ws://sub1.bfs-dev.com:3000/cable';
+// You may need to NOT use localhost for Android
+const cable = 'ws://localhost:3000/cable';
 
 const consumer = createConsumer(cable);
 
@@ -24,9 +25,8 @@ const ConsumerComponent = () => {
   const insightsData = useMemo(() => {
     return consumer.subscriptions.create(
       {
-        channel: 'SocketToMeChannel',
-        route: 'insights#compare_insights_books_read',
-        microsite_id: 1,
+        channel: 'MessageChannel',
+        route: 'integration#login_and_fetch_readers',
       },
       {
         received(data) {
