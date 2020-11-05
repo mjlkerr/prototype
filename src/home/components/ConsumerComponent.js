@@ -22,11 +22,16 @@ const ConsumerComponent = () => {
   console.log(consumer);
   const [value, setValue] = useState('');
   const [messages, setMessages] = useState([]);
+
   const insightsData = useMemo(() => {
+    let rando = Math.random().toString(36).substring(7);
+    console.log(rando);
     return consumer.subscriptions.create(
       {
         channel: 'MessageChannel',
         route: 'integration#login_and_fetch_readers',
+        user_id: 9999,
+        random_id: rando,
       },
       {
         received(data) {
